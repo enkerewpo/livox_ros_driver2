@@ -656,7 +656,7 @@ std::shared_ptr<rclcpp::PublisherBase> Lddc::GetCurrentPublisher(uint8_t handle)
     return private_pub_[handle];
   } else {
     if (!global_pub_) {
-      std::string topic_name("livox/lidar");
+      std::string topic_name("scanner/cloud");
       queue_size = queue_size * 8; // shared queue size is 256, for all lidars
       global_pub_ = CreatePublisher(transfer_format_, topic_name, queue_size);
     }
